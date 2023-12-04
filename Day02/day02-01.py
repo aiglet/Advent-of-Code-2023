@@ -13,11 +13,6 @@ def game_checker(games):
     # Iterate through the set of games
     for game in games:
 
-        # Set up the variables for counting the block totals in each game
-        red = 0
-        green = 0
-        blue = 0
-
         # Clean up the game and split it into the game number and the moves
         game = game.strip()
         split1 = game.split(": ")
@@ -41,6 +36,11 @@ def game_checker(games):
             # Iterate through the moves of each game
             for move in cube:
 
+                # Set up the variables for counting the block totals in each game
+                red = 0
+                green = 0
+                blue = 0
+
                 # Split out the number of cubes (which is either a
                 # one digit number and a space or a two digit number) and
                 # remove any extra spaces
@@ -60,10 +60,25 @@ def game_checker(games):
                 elif color[0] == 'r':
                     red += int(cube_number)
 
+                if red <= red_total and blue <= blue_total and green <= green_total:
+                    game_possible = True
+                else:
+                    game_possible = False
+
         # If the current game is possible, add the number of the game to the
         # total sum of game numbers
-        if red <= red_total and blue <= blue_total and green <= green_total:
+
+        if game_possible == True:
+            print(f"I am adding {game_num}")
             game_sum += game_num
+        else:
+            if red > red_total:
+                print(f"{red} is bigger than 12")
+            elif blue > blue_total:
+                print(f"{blue} is bigger than 13")
+            elif green > green_total:
+                print(f"{green} is bigger than 14")
+            print(f"I am not adding {game_num}")
 
     print(game_sum)
 

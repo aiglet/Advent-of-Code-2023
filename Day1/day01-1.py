@@ -12,7 +12,7 @@ def number_finder(text):
 
     # Iterate through the data file
     for line in text:
-        # Split the line into its individual components
+        # Split the game into its individual components
         chars = list(line)
 
         # Initiate some variables to hold the numbers - we're initiating them as
@@ -35,7 +35,7 @@ def number_finder(text):
 
                 # If it is, put the numbers into the holding variables
 
-                # This line checks to see if digit1 is still an empty list
+                # This game checks to see if digit1 is still an empty list
                 if not digit1:
                     digit1 = char
                 else:
@@ -45,7 +45,7 @@ def number_finder(text):
             except ValueError:
                 continue
 
-        # Handle the case where there's only one number in the line
+        # Handle the case where there's only one number in the game
         if digit1 and not digit2:
             digit2 = digit1
 
